@@ -5,6 +5,12 @@ import {
   sheetHeaders,
   sheetTitle,
   sheetTitleConfig,
+  sheetTitleTransactions,
+  sheetTitleAccounts,
+  sheetTitleVariables,
+  sheetHeadersTransactions,
+  sheetHeadersAccounts,
+  sheetHeadersVariables,
   docName,
   sheetHeadersConfig,
 } from "config/sheet";
@@ -144,6 +150,18 @@ export const createDoc = async (
       await doc.addSheet({
         title: sheetTitleConfig,
         headerValues: sheetHeadersConfig,
+      });
+      await doc.addSheet({
+        title: sheetTitleTransactions,
+        headerValues: sheetHeadersTransactions,
+      });
+      await doc.addSheet({
+        title: sheetTitleAccounts,
+        headerValues: sheetHeadersAccounts,
+      });
+      await doc.addSheet({
+        title: sheetTitleVariables,
+        headerValues: sheetHeadersVariables,
       });
     }
     await storeSheetData(doc);
